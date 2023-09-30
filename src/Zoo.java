@@ -1,34 +1,31 @@
-//Instruction 5
 public class Zoo {
     Animal [] animals;
     String name;
     String city;
-    int nbrCages;
     int nbrAnimals=0;
-    //Instruction 6
-    public Zoo(String name, String city, int nbrCages) {
+    //Instruction 14
+    final int nbrCages=25;
+    //Puisque nbrCages devient une constante, il faut l'enlever du paramètre du constructeur
+    public Zoo(String name, String city) {
         animals = new Animal[nbrCages];
         this.name = name;
         this.city = city;
-        this.nbrCages = nbrCages;
     }
-    //Instruction 7
+
     public Zoo(){
 
     }
-    //Instruction 8
+
     public void displayZoo(){
         System.out.println("nom : "+name+", cité: "+city+" et nombre de cages : "+nbrCages);
     }
-    //Instruction 9
+
     @Override
     public String toString(){
         return "nom : "+name+", cité: "+city+" et nombre de cages : "+nbrCages;
     }
-    //Instruction 10
+
     boolean addAnimal(Animal animal){
-        //Instruction 12
-        //Pour assurer que les animaux sont unique on doit d'abord chercher le nouvelle animau dans le zoo avant de l'ajouter
         if (this.searchAnimal(animal)==-1 && nbrAnimals!=nbrCages) {
             animals[nbrAnimals]=animal;
             nbrAnimals++;
@@ -36,7 +33,7 @@ public class Zoo {
         }
         return false;
     }
-    //Instruction 11
+
     public void displayAnimals(){
         System.out.println("Les animaux dans "+name+" sont : ");
         for (int i=0;i<nbrAnimals;i++)
@@ -49,7 +46,7 @@ public class Zoo {
                 return i;
         return  -1;
     }
-    //Instruction 13
+
     boolean removeAnimal(Animal animal){
         if (this.searchAnimal(animal)!=-1) {
             for (int i = this.searchAnimal(animal); i < nbrAnimals-1; i++)
@@ -59,5 +56,22 @@ public class Zoo {
             return true;
         }
         return false;
+    }
+    //Instruction 15
+    boolean isZooFull(){
+        if (nbrAnimals==nbrCages)
+            return true;
+        return false;
+    }
+    //Instruction 16
+    //La méthode est statique pour qu'elle soit accessible à partir du nom de classe
+    static Zoo comparerZoo(Zoo z1, Zoo z2){
+        if (z1.nbrAnimals > z2.nbrAnimals)
+            return z1;
+        else if (z1.nbrAnimals < z2.nbrAnimals) {
+            return z2;
+        }
+        else
+            return null;
     }
 }
