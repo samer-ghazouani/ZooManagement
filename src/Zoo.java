@@ -2,12 +2,12 @@ public class Zoo {
     Animal [] animals;
     String name;
     String city;
-    int nbrAnimals=0;
+    int nbrAnimals;
     //Instruction 14
-    final int nbrCages=25;
+    static final int NUMBER_OF_CAGES=25;
     //Puisque nbrCages devient une constante, il faut l'enlever du paramètre du constructeur
     public Zoo(String name, String city) {
-        animals = new Animal[nbrCages];
+        animals = new Animal[NUMBER_OF_CAGES];
         this.name = name;
         this.city = city;
     }
@@ -17,16 +17,16 @@ public class Zoo {
     }
 
     public void displayZoo(){
-        System.out.println("nom : "+name+", cité: "+city+" et nombre de cages : "+nbrCages);
+        System.out.println("nom : "+name+", cité: "+city+" et nombre de cages : "+NUMBER_OF_CAGES);
     }
 
     @Override
     public String toString(){
-        return "nom : "+name+", cité: "+city+" et nombre de cages : "+nbrCages;
+        return "nom : "+name+", cité: "+city+" et nombre de cages : "+NUMBER_OF_CAGES;
     }
 
     boolean addAnimal(Animal animal){
-        if (this.searchAnimal(animal)==-1 && nbrAnimals!=nbrCages) {
+        if (this.searchAnimal(animal)==-1 && nbrAnimals!=NUMBER_OF_CAGES) {
             animals[nbrAnimals]=animal;
             nbrAnimals++;
             return true;
@@ -59,7 +59,7 @@ public class Zoo {
     }
     //Instruction 15
     boolean isZooFull(){
-        if (nbrAnimals==nbrCages)
+        if (nbrAnimals==NUMBER_OF_CAGES)
             return true;
         return false;
     }
