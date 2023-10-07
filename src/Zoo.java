@@ -17,12 +17,12 @@ public class Zoo {
     }
 
     public void displayZoo(){
-        System.out.println("nom : "+name+", cité: "+city+" et nombre de cages : "+NUMBER_OF_CAGES);
+        System.out.println("nom : "+name+", cité: "+city+" et nombre d'animales : "+nbrAnimals);
     }
 
     @Override
     public String toString(){
-        return "nom : "+name+", cité: "+city+" et nombre de cages : "+NUMBER_OF_CAGES;
+        return "nom : "+name+", cité: "+city+" et nombre d'animales : "+nbrAnimals;
     }
 
     boolean addAnimal(Animal animal){
