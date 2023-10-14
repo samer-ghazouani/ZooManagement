@@ -34,8 +34,10 @@ public class Zoo {
     public void setName(String name) {
         if (name!=null && name.strip().isEmpty()==false)
             this.name = name;
-        else
+        else{
+            System.out.println("Le nom ne doit pas être vide donc on le rend MyZoo par default");
             this.name = "MyZoo";
+        }
     }
 
     public String getCity() {
