@@ -1,14 +1,12 @@
-//Instruction 19
 package tn.esprit.gestionzoo.entities;
 
 public class Animal {
-    //Instruction 18
-    //Pour restreindre l’accès aux attributs on les rend privés et on ajoute des getters et setters pour chaque attributs
-    private String family;
-    private String name;
-    private int age;
-    private boolean isMammal;
-    //Pour assurer que l'age de l'aniimal n'est pas negatif on utilise le setter de l'age dans le constructeur
+    //Instruction 22
+    //Il faut rendre les attributs protected
+    protected String family;
+    protected String name;
+    protected int age;
+    protected boolean isMammal;
     public Animal(String family, String name, int age, boolean isMammal) {
         this.family = family;
         this.name = name;
@@ -39,7 +37,6 @@ public class Animal {
     public int getAge() {
         return age;
     }
-    //Pour eviter que l'age soit negatif si l'utilisateur saisit un age invalide on le donne une valeur par defaut 0
     public void setAge(int age) {
         if (age>=0)
             this.age = age;
@@ -59,6 +56,6 @@ public class Animal {
 
     @Override
     public String toString(){
-        return "famille : "+family+", nom : "+name+", age : ,"+age+" et mammifère :"+isMammal;
+        return "famille : "+family+", nom : "+name+", age : ,"+age+" et mammifère : "+isMammal;
     }
 }
