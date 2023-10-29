@@ -22,6 +22,6 @@ public class Penguin extends Aquatic{
     //Instruction 23
     @Override
     public String toString() {
-        return "famille : "+family+", nom : "+name+", age : ,"+age+", mammifère : "+isMammal+", habitat : "+habitat+" et swimmingDepth : "+swimmingDepth;
+        return "famille : "+super.getFamily()+", nom : "+super.getName()+", age : ,"+super.getAge()+", mammifère : "+super.isMammal()+", habitat : "+habitat+" et swimmingDepth : "+swimmingDepth;
     }
 }

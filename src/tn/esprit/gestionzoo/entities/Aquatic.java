@@ -1,7 +1,7 @@
 //Instruction 20
 package tn.esprit.gestionzoo.entities;
 
-public class Aquatic extends Animal{
+public non-sealed class Aquatic extends Animal {
     //Instruction 22
     //Il faut rendre l'attribut protected
     protected String habitat;
@@ -23,7 +23,7 @@ public class Aquatic extends Animal{
     //Instruction 23
     @Override
     public String toString() {
-        return "famille : "+family+", nom : "+name+", age : ,"+age+", mammifère : "+isMammal+" et habitat : "+habitat;
+        return "famille : "+super.getFamily()+", nom : "+super.getName()+", age : ,"+super.getAge()+", mammifère : "+super.isMammal()+" et habitat : "+habitat;
     }
     //Instruction 24
     public void swim(){
