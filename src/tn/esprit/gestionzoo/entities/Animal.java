@@ -1,8 +1,6 @@
 package tn.esprit.gestionzoo.entities;
 
 public sealed class Animal permits Aquatic, Terrestrial{
-    //Instruction 22
-    //Il faut rendre les attributs protected
     private String family;
     private String name;
     private int age;
