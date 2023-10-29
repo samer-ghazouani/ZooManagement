@@ -23,7 +23,7 @@ public class Penguin extends Aquatic{
     public String toString() {
         return "famille : "+super.getFamily()+", nom : "+super.getName()+", age : ,"+super.getAge()+", mammifère : "+super.isMammal()+", habitat : "+habitat+" et swimmingDepth : "+swimmingDepth;
     }
-    //Instruction 28
+
     @Override
     public void swim(){
         System.out.println("This penguin is swimming.");

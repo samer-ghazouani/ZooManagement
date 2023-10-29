@@ -1,7 +1,8 @@
 package tn.esprit.gestionzoo.entities;
+//on commence par l'importation de package d'exception
+import tn.esprit.gestionzoo.exceptions.*;
 
 public class Zoo {
-    //Instruction 25
     private Aquatic[] aquaticAnimals;
     private int nbrAquaticAnimals;
     private Animal[] animals;
@@ -12,7 +13,8 @@ public class Zoo {
 
     public Zoo(String name, String city) {
         aquaticAnimals = new Aquatic[10];
-        animals = new Animal[NUMBER_OF_CAGES];
+        //animals = new Animal[NUMBER_OF_CAGES];
+        animals = new Animal[3];
         this.setName(name);
         this.city = city;
     }
@@ -58,14 +60,21 @@ public class Zoo {
     public String toString(){
         return "nom : "+name+", cité: "+city+" et nombre d'animales : "+nbrAnimals;
     }
-
-    public boolean addAnimal(Animal animal){
-        if (this.searchAnimal(animal)==-1 && this.isZooFull()==false) {
-            animals[nbrAnimals]=animal;
-            nbrAnimals++;
-            return true;
+    //Instruction 32
+    public void addAnimal(Animal animal) throws ZooFullException, InvalidAgeException{
+        //Instruction 34
+        if (animal.getAge()<0)
+            throw new InvalidAgeException("L'age d'animal est négatif");
+        //Instruction 33
+        try {
+            if (this.searchAnimal(animal)==-1) {
+                animals[nbrAnimals]=animal;
+                nbrAnimals++;
+            }
         }
-        return false;
+        catch (ArrayIndexOutOfBoundsException e){
+            throw new ZooFullException("Le zoo est plein.");
+        }
     }
 
     public void displayAnimals(){
@@ -107,7 +116,7 @@ public class Zoo {
         else
             return null;
     }
-    //Instruction 26
+
     public void addAquaticAnimal(Aquatic aquatic){
         if (nbrAquaticAnimals<10){
             aquaticAnimals[nbrAquaticAnimals]=aquatic;
@@ -117,7 +126,7 @@ public class Zoo {
             System.out.println("Les cages des animaux aquatiques sont plein !");
         }
     }
-    //Instruction 29
+
     public float maxPenguinSwimmingDepth(){
         float max=0.0f;
         for (Aquatic animal : aquaticAnimals)
@@ -126,7 +135,7 @@ public class Zoo {
                     max=((Penguin) animal).getSwimmingDepth();
         return max;
     }
-    //Instruction 30
+
     public void displayNumberOfAquaticsByType(){
         int penguins=0;
         int dolphins=0;
