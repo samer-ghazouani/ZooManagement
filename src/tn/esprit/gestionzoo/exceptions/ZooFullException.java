@@ -1,4 +1,3 @@
-//Instruction 33
 package tn.esprit.gestionzoo.exceptions;
 
 public class ZooFullException extends Exception {

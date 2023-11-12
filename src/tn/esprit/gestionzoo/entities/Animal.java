@@ -14,7 +14,6 @@ public sealed class Animal permits Aquatic, Terrestrial{
     }
 
     public Animal(){
-        this.setAge(0);
     }
 
     public String getFamily() {
@@ -36,14 +35,7 @@ public sealed class Animal permits Aquatic, Terrestrial{
     public int getAge() {
         return age;
     }
-    //Instruction 34
     public void setAge(int age) {
-        /*if (age>=0)
-            this.age = age;
-        else{
-            System.out.println("L'age ne peut pas être negatif donc on le rend 0 par defaut");
-            this.age = 0;
-        }*/
         this.age = age;
     }
 

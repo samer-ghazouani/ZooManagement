@@ -1,5 +1,4 @@
 package tn.esprit.gestionzoo.entities;
-//on commence par l'importation de package d'exception
 import tn.esprit.gestionzoo.exceptions.*;
 
 public class Zoo {
@@ -13,8 +12,7 @@ public class Zoo {
 
     public Zoo(String name, String city) {
         aquaticAnimals = new Aquatic[10];
-        //animals = new Animal[NUMBER_OF_CAGES];
-        animals = new Animal[3];
+        animals = new Animal[NUMBER_OF_CAGES];
         this.setName(name);
         this.city = city;
     }
@@ -60,12 +58,9 @@ public class Zoo {
     public String toString(){
         return "nom : "+name+", cité: "+city+" et nombre d'animales : "+nbrAnimals;
     }
-    //Instruction 32
     public void addAnimal(Animal animal) throws ZooFullException, InvalidAgeException{
-        //Instruction 34
         if (animal.getAge()<0)
             throw new InvalidAgeException("L'age d'animal est négatif");
-        //Instruction 33
         try {
             if (this.searchAnimal(animal)==-1) {
                 animals[nbrAnimals]=animal;
