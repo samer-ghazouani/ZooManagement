@@ -67,6 +67,14 @@ public class Employe implements Comparable<Employe>{
     }
 
     @Override
+    public int hashCode() {
+        int result = 17;
+        result = 31 * result + id;
+        result = 31 * result + nom.hashCode();
+        return result;
+    }
+
+    @Override
     public String toString() {
         return "id=" + id +", nom=" + nom + ", prenom=" + prenom + ", nomDepartement=" + nomDepartement + ", grade=" + grade;
     }
